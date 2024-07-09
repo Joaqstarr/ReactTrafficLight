@@ -1,6 +1,12 @@
 import React, {useState} from "react";
+import {Howl, Howler} from 'howler';
 
+var horn = new Howl({
+    src: ['bicycle-horn-1.wav']
+});
 export function TrafficLight(){
+
+
     const [redOn, SetRedOn] = useState(false);
     const [yellowOn, SetYellowOn] = useState(false);
     const [greenOn, SetGreenOn] = useState(false);
@@ -10,6 +16,7 @@ export function TrafficLight(){
         SetYellowOn(color == "yellow");
         SetGreenOn(color == "green");
         console.log(color);
+        horn.play();
     }
 
     return(<div className="m-auto w-min">
